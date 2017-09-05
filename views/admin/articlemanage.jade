@@ -1,0 +1,22 @@
+extends ../shared/layoutAdmin
+block content
+	link(href='/libs/bootstrap-table/dist/bootstrap-table.min.css', rel='stylesheet')
+	.row.white-bg.page-heading
+		h2 文章管理
+	.wrapper-content
+		.row
+			.col-md-12
+				.ibox
+					div.ibox-content
+						#articleTable
+							a.btn.btn-white(href="/admin")
+								i.fa.fa-plus
+								span 新的文章
+							.table-container
+								table#articles
+	script(type='text/javascript', src='/libs/jquery/dist/jquery.min.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap/dist/js/bootstrap.min.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap-table/dist/bootstrap-table.min.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap-table/dist/extensions/filter-control/bootstrap-table-filter-control.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js', charset='utf-8')
+	script(type='text/javascript', src='/javascripts/articlemanage.js', charset='utf-8')

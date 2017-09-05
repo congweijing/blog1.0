@@ -1,0 +1,23 @@
+extends ../shared/layoutAdmin
+block content
+	.row.white-bg.page-heading
+		h2 分类管理
+	.wrapper-content
+		.row
+			.col-md-12
+				.ibox
+					div
+						li.list-group-item
+							.row
+								.col-md-2
+									input.form-control.txtName(type="text",value="分类名称",placeholder="分类名称",readonly="readonly")
+								.col-md-2
+									input.form-control.txtAlias(type="text",value="别名",placeholder="分类alias",readonly="readonly")
+						ul#categoryList.list-group
+						button#btnNew.btn.btn-white
+							i.fa.fa-plus
+							span 新的分类
+						button#btnSave.btn.btn-primary.pull-right
+							i.fa.fa-cloud-upload
+							span 保存修改
+	script(type='text/javascript', src='/javascripts/categorymanage.js', charset='utf-8')

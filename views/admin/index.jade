@@ -1,0 +1,70 @@
+extends ../shared/layoutAdmin
+block content
+	.row.white-bg.page-heading
+		h2 新的文章
+	.wrapper-content
+		.row
+			.col-md-12
+				.ibox
+					.ibox-content
+						form#postForm(action='/admin/saveArticle',method='Post', autocomplete="off",onkeydown="if(event.keyCode==13){return false;}")
+							.row
+								.col-md-9
+									.form-group
+										label(for="Title") 标题
+										input#Title.form-control(type='text',name='Title',placeholder='请输入标题',required)
+								.col-md-3
+									.form-group
+										label(for='CategoryId') 分类
+										#Categorylist
+											.btn-group.selectlist
+												button.btn.btn-white.dropdown-toggle(data-toggle='dropdown',type='button',style='width:auto  i;') 
+													span 未分类
+													span.caret
+												ul.dropdown-menu(role='menu',style='min-width:100%;')
+													li.active(data-value="other")
+														a(href='#') 未分类
+												input#CategoryId.hidden(type='text',name='CategoryId',placeholder='未分类')
+							.row
+								.col-md-9
+									.form-group
+										label(for='Alias') Alias
+										input#Alias.form-control(type='text',name='Alias',placeholder='请输入Alias',required)
+							.form-group
+								label(for='Summary') 摘要
+								textarea#Summary(name='Summary',style='min-width:100%;max-width:100%',placeholder='请输入摘要',required)
+							.form-group#Source
+								label(style="display:block;") 来源
+								label.source-label(data-toggle='block-local')
+									input#local(name='Source',type='radio',value="0",checked='checked')
+									span 本地
+								label.source-label(data-toggle='#block-link')
+									input#link(name='Source',type='radio',value="1")
+									span 外链
+							#block-local
+								.form-group
+									label(for="pillbox-input") 标签
+									input#pillbox-input.form-control(name='Labels',placeholder="以逗号分割")
+								.form-group
+									label 正文
+									script#editor(type="text/plain")
+							#block-link
+								.form-group
+									label(for="Url") Url
+									input#Url.form-control(type="url",name="Url",placeholder="请输入链接地址")
+							div
+								button#btnPublish.btn.btn-danger(type='button')
+									i.fa.fa-send
+									span 发布
+								button#btnSave.btn.btn-primary(type='button')
+									i.fa.fa-save
+									span 保存草稿
+								input#UniqueId(type='hidden',name='UniqueId',value=uniqueId)
+								input#IsDraft(type='hidden',name='IsDraft')
+	script(type='text/javascript', src='/libs/jquery/dist/jquery.min.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap/dist/js/bootstrap.min.js', charset='utf-8')
+	script(type='text/javascript', src='/javascripts/admin.js', charset='utf-8')
+	script(type='text/javascript', src='/ueditor/ueditor.config.js', charset='utf-8')
+	script(type='text/javascript', src='/ueditor/ueditor.all.js', charset='utf-8')
+	script.
+		var ue = UE.getEditor('editor',{textarea:'Content'});

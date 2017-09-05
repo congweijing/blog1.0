@@ -1,0 +1,31 @@
+extend ../shared/layout
+block content
+	.detail-container
+		.container
+			.row
+				article.detail-wrap.post-content
+					div
+						.pull-left
+							span.text-muted
+								i.fa.fa-map-signs
+								a(href="#")=post.CateName
+						.pull-right
+							each lable in post.LabelList
+								span.post-lable=lable
+						.clearfix
+					header.text-center.post-title
+						span.text-muted
+							i.fa.fa-clock-o
+							span=' ' +post.CreateTimeStr
+						h1=post.Title
+					#main-context
+						blockquote
+							h2 摘要
+							span='：' + post.Summary
+						!=post.Content
+	include ../shared/top
+	script(type='text/javascript', src='/libs/jquery/dist/jquery.min.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap/dist/js/bootstrap.min.js', charset='utf-8')
+	script(type='text/javascript', src='/javascripts/top.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/jquery-qrcode/dist/jquery.qrcode.min.js',charset='utf-8')
+	script(type='text/javascript', src='http://v3.jiathis.com/code/jia.js', charset='utf-8')

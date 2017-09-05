@@ -1,0 +1,39 @@
+doctype html
+html(lang='zh-CN')
+	head
+		meta(http-equip='Content-Type',content='text/html;charset=utf-8')
+		meta(name='viewport',content='width=device-width,initial-scale=1.0')
+		meta(charset='utf-8')
+		title=title
+		link(href='/libs/bootstrap/dist/css/bootstrap.min.css',rel='stylesheet')
+		link(href='/stylesheets/bootstrap-addon.css', rel='stylesheet')
+		link(href='/stylesheets/admin.css',rel='stylesheet')
+		link(href='/libs/font-awesome/css/font-awesome.min.css',rel='stylesheet')
+	body.fuelux
+		#wrapper
+			nav.navbar.navbar-default.navbar-static-side(role='navigation')
+				div
+					ul.nav#side-menu
+						li.nav-header
+							div
+								div
+									a(href='/',target='_blank')
+										img(src='/images/profile_photo.jpg',alt="头像")
+								a(href='/admin') 后台管理
+						li#newArticle
+							a(href='/admin') 新的文章
+						li#categoryManage
+							a(href='/admin/categorymanage') 分类管理
+						li#articleManage
+							a(href='/admin/articlemanage') 文章管理
+						li
+							a(href='#') 异常管理
+			#page-wrapper.gray-bg
+				.row.border-bottom
+					form#logoutForm(action="/logout",method='Post')
+						ul.nav.navbar-right.navbar-top-links
+							li
+								a(href="javascript:$('logoutForm').submit()",title='退出登录')
+									i.fa.fa-power-off
+									span 退出登录
+				block content

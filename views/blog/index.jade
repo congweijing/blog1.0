@@ -1,0 +1,60 @@
+extends ../shared/layout
+block content
+	.container-fluid.render-body
+		.row
+			.col-md-2.category-block.hidden-sm.hidden-xs
+				.category-top 文章分类
+				.category-split
+				.category-list
+					ul.nav.nav-pills.nav-stacked
+						li(class='#{currentCate===""?"active":""}')
+							a(href='/')
+								span 全部分类
+						each cate in cateData
+							li(class='#{currentCate===cate.Alias?"active":""}')
+								a(href='/blog#{cate.Alias?"/"+cate.Alias:""}')
+									span=cate.CateName
+			.col-md-8.col-md-offset-2.blog-list
+				.row.data-block
+					.col-md-12
+						.list-wrap
+							.row.top-bar
+								form#filterForm(action='/blog/getPosts',method='POST')
+									.col-md-7.list-top-left.col-sm-4.hidden-xs
+										a.current(title='按日期排序',sort="data",value=0) 日期
+										a(title='按标题排序',sort="title",value=1) 标题
+										input#CateAlias.hidden(type='text', value=currentCate, name='CateAlias')
+										input#SortBy.hidden(type='text', value=0, name='SortBy')
+									.col-md-5.list-top-right
+										.input-group
+											.input-group-btn
+												.btn-group.selectlist
+													button.btn.btn-white.dropdown-toggle(data-toggle='dropdown',type='button',style='width:71px;') 
+														span 全文
+														span.caret
+													ul.dropdown-menu(role='menu',style='min-width:100%;')
+														li.active(data-value="0")
+															a(href='#') 全文
+														li(data-value="1")
+															a(href='#') 标题
+														li(data-value="2")
+															a(href='#') 标签
+														li(data-value="3")
+															a(href='#') 日期
+													input#FilterType.hidden.hidden-field(type='text',readonly = "readonly", aria_hidden = "true",name='FilterType')
+											input#Keyword.form-control(type='text',placeholder='关键字',name='Keyword')
+											.input-group-btn
+												button#btnFilter.btn.btn-white(type='button')
+													i.fa.fa-search
+													span 搜索
+							ol.list-unstyled  
+				include ../shared/footer  
+			.col-md-2.empty-block
+	include ../shared/top
+	script(type='text/javascript', src='/libs/jquery/dist/jquery.min.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/bootstrap/dist/js/bootstrap.min.js', charset='utf-8')
+	script(type='text/javascript', src='/javascripts/top.js', charset='utf-8')
+	script(type='text/javascript', src='/javascripts/index.js', charset='utf-8')
+	script(type='text/javascript', src='/libs/jquery-qrcode/dist/jquery.qrcode.min.js',charset='utf-8')
+	script(type='text/javascript', src='http://v3.jiathis.com/code/jia.js', charset='utf-8')
+	link(type='text/css', href='/stylesheets/selectlist.css')

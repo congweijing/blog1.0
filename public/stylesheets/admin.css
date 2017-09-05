@@ -1,0 +1,124 @@
+/*初始化*/
+*{
+    margin:0;
+    padding:0;
+}
+html,body{
+    height:100%;
+}
+body {
+
+    font-family: "微软雅黑", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #676a6c;
+    overflow-x: hidden;
+    height:100%;
+    background-color: #2f4050;
+}
+a{
+    color:#585f69;
+}
+a:hover,a:focus{
+    text-decoration:none;
+    outline:none;
+}
+/*左侧导航区*/
+.navbar-static-side {
+    z-index: 2001;
+    position: absolute;
+    width: 220px;
+    height:100%;
+    background-color:#2f4050;
+}
+.nav-header {
+    padding: 33px 25px 20px;
+    background: url(/images/header-profile.png) no-repeat;
+}
+.nav-header img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+.navbar-default {
+    border:none;
+}
+.nav > li > a {
+    color: #a7b1c2;
+    font-weight: 600;
+    padding: 14px 20px 14px 25px;
+}
+.navbar-default .nav > li > a:hover, .navbar-default .nav > li > a:focus {
+    background-color: #293846;
+    color: white;
+}
+.navbar-default .nav > li> a.active{
+    background-color: #293846;
+    color: white;
+}
+
+
+
+/*////////////////////////////////新的文章*/
+/*正文*/
+#wrapper{
+    height:100%;
+}
+#page-wrapper {
+    position: relative;
+    margin: 0 0 0 220px;
+    padding: 0 15px;
+    min-height:100%;
+    position: relative !important;
+}
+.gray-bg {
+    background-color: #f3f3f4;
+}
+/*正文头部退出登录*/
+.border-bottom {
+    border-bottom: 1px solid #e7eaec !important;
+}
+.navbar-top-links li a {
+    padding: 20px 10px;
+    min-height: 50px;
+}
+#page-wrapper>.row:first-child{
+    padding-right:30px;
+}
+.white-bg {
+    background-color: #fff;
+}
+h2 {
+    font-size: 20px;
+    font-weight:100;
+}
+.page-heading {
+    border-top: 0;
+    padding: 0px 10px 10px 20px;
+}
+.wrapper-content {
+    padding: 20px 10px 40px;
+}
+.ibox-content{
+    padding:15px 20px 20px 20px;
+    background-color:#fff;
+
+}
+
+.source-label{
+    padding-right:20px;
+}
+#btnSave{
+    margin-left:15px;
+}
+
+
+/*编辑文章*/
+#btnReturn{
+    margin-left:15px;
+}
+/*文章管理*/
+#articles{
+    width:100%;
+    padding:8px;
+}
