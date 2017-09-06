@@ -107,12 +107,7 @@ exports.getAll = function(isAll,callback){
 exports.getByAlias = function(alias,callback){
 	if(alias){
 		if(alias=="other"){
-			if(err){
-				callback(err);
-			}else{
-				return callback(null,cateOther);
-			}
-			
+			return callback(null,cateOther);
 		}else{
 			categoryModel.findOne({"Alias":alias},function(err,category){
 				if(err){

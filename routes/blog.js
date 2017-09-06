@@ -48,8 +48,6 @@ router.post('/getPosts',function(req,res,next){
                         if(err){
                             cb(err);
                         }else{
-
-            console.log(category);
                             cb(null,category);
                         }
                     })
@@ -181,7 +179,6 @@ router.get('/:category/:article',function(req,res,next){
                 Summary: article.Summary,
                 Content: article.Content
             };
-            console.log(post);
             res.render('blog/article', {
                 post: post
             });

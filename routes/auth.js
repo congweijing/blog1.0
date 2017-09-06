@@ -60,78 +60,6 @@ router.post('/login',function(req,res,next){
 	})(req,res,next);
 })
 module.exports = router;
-
-/*
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var Strategy = require('passport-local').Strategy;
-//匹配用户策略
-passport.use(new Strategy(
-    {
-        usernameField: 'UserName',//页面上的用户名字段的name属性值
-        passwordField: 'PassWord'//页面上的密码字段的name属性值
-    },
-    function (username, password, cb) {
-        var account = require('../config/account');
-        //自己判断用户是否有效
-        if (username === account.UserName && password === account.PassWord) {
-            //验证通过
-            return cb(null, account);
-        } else {
-            //验证失败
-            return cb(null, false);
-        }
-    }));
-//将环境中的user.id序列化到session中，即sessionID，同时它将作为凭证存储在用户cookie中
-passport.serializeUser(function (user, cb) {
-    cb(null, user.Id);
-});
-//从session反序列化，参数为用户提交的sessionID，若存在则从数据库中查询user并存储与req.user中
-passport.deserializeUser(function (id, cb) {
-    var account = require('../config/account');
-    if (account.id === id) {
-        return cb(null, account);
-    } else {
-        return cb(err);
-    }
-});
-
-//后台登录页面
-router.get('/login', function (req, res, next) {
-            res.render('auth/login');
-});
-
-//提交登录请求
-router.post('/login', function (req, res, next) {
-    passport.authenticate('local', function (err, user, info) {//3个参数，第一是name，即验证策略的名称,第二个是options,第三个参数是callback。如果使用了callback，那么验证之后建立session和发出响应都应该由这个callback来做
-        if (err) {
-            next(err);
-        } else if (!user) {
-            res.json({
-                valid: false
-            });
-        } else {
-            //登录操作
-            req.logIn(user, function (err) { //为登录用户初始化session
-                var returnTo = '/admin';
-                if (err) {
-                    next(err);
-                } else {
-                    //尝试跳转之前的页面
-                    if (req.session.returnTo) {
-                        returnTo = req.session.returnTo;
-                    }
-                    res.json({
-                        valid: true,
-                        returnTo: returnTo
-                    });
-                }
-            });
-        }
-    })(req, res, next);
-});
-
 //退出登录
 router.post('/logout',
     function (req, res) {
@@ -140,4 +68,3 @@ router.post('/logout',
     });
 
 module.exports = router;
-*/

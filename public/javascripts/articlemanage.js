@@ -16,7 +16,7 @@ $(function () {
         iconsPrefix: "fa",
         idField: "UniqueId",
         sortName: "CreateTime",
-        sortOrder: "asc",
+        sortOrder: "desc",
         filterControl: true,
         responseHandler: responseHandler,  //闹到数据后的操作
         columns: [{

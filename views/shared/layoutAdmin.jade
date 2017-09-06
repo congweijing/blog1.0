@@ -33,7 +33,7 @@ html(lang='zh-CN')
 					form#logoutForm(action="/logout",method='Post')
 						ul.nav.navbar-right.navbar-top-links
 							li
-								a(href="javascript:$('logoutForm').submit()",title='退出登录')
+								a(href="javascript:document.getElementById('logoutForm').submit()",title='退出登录')
 									i.fa.fa-power-off
 									span 退出登录
 				block content

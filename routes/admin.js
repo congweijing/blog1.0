@@ -18,7 +18,6 @@ router.get('/categorymanage',function(req,res,next){
 });
 //保存分类列表
 router.post('/saveCategories',function(req,res,next){
-	console.log(req.body);
 	var array = JSON.parse(req.body.json);
 	category.save(array,function(err){
 		if(err){
@@ -81,7 +80,6 @@ router.post('/getCateFilter',function(req,res,next){
 			callback(err);
 		}else{
 			res.json(data);
-			console.log(data);
 		}
 	})
 })
@@ -91,12 +89,12 @@ router.post('/deleteArticle',function(req,res,next){
 })
 //获取文章
 router.post("/getArticles",function(req,res,next){
-	console.log(req.body);
 	var filter,
 		params={
 		pageIndex:req.body.pageNumber,
 		pageSize:req.body.pageSize,
 		sortName:req.body.sortName,
+		sortOrder:req.body.sortOrder,
 		searchText:req.body.searchText
 	};
 	if(req.body.filter){
@@ -142,7 +140,6 @@ router.post("/getArticles",function(req,res,next){
 				count = results[1],
 				categories = results[2],
 				result = [];
-			console.log(posts);
 			posts.forEach(function(item){
 				var post = {
 					UniqueId:item._id,
@@ -190,12 +187,13 @@ router.post('/saveArticle',function(req,res,next){
         Url: req.body.Url,
         IsDraft: req.body.IsDraft
 	};
-	console.log(req.body);
-	post.save(params,function(err){
+	post.save(params,function(err,id){
 		if(err){
 			next(err);
-		}else{
-			res.send(req.body);
+		}
+		else{
+			//res.send("保存成功");
+			res.redirect('/admin/articlemanage');
 		}
 	})
 });
