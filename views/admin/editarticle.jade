@@ -36,7 +36,7 @@ block content
 									!=post.Summary
 							.form-group#Source
 								label(style="display:block;") 来源
-								label.source-label(data-toggle='block-local')
+								label.source-label(data-toggle='#block-local')
 									input#local(name='Source',type='radio',value="0",checked='checked')
 									span 本地
 								label.source-label(data-toggle='#block-link')
@@ -90,3 +90,4 @@ block content
 	script(type='text/javascript', src='/ueditor/ueditor.all.js', charset='utf-8')
 	script.
 		var ue = UE.getEditor('editor',{textarea:'Content'});
+		var source = '#{post.Source}';

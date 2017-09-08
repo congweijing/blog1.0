@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 			next(err);
 		}else{
 			res.render('blog/index',{
-				title:"一只猫",
+				title:"一个叫丛丛的人",
 				cateData:categories,
 				currentCate:""
 			})

@@ -157,7 +157,6 @@ router.post("/getArticles",function(req,res,next){
 					if(item.CategoryId==cateitem._id){    //如果文章中有id那么对其进行更新
 						post.CategoryAlias = cateitem.Alias;
                     	post.CateName = cateitem.CateName;
-                    	console.log(post.CateName);
 					}
 				});
 				result.push(post);

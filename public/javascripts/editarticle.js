@@ -4,6 +4,12 @@ window.onload=function(){
     //异步加载文章分类数据、然后回调按钮的特效
     refreshCate(); 
     localOrlink();
+    if(source==0){
+        document.getElementById("local").click();
+    }
+    if(source==1){
+        document.getElementById("link").click();
+    }
     //表单验证
     var btnPublish = document.getElementById("btnPublish");
     var btnUpdate = document.getElementById("btnUpdate");
@@ -21,23 +27,6 @@ window.onload=function(){
         IsDraft.value = false;
         checkForm();
     }
-
-
-    
-    //保存草稿
-    /*function submitSure(){
-        var gn1=confirm("确认要发布？");
-        if(gn1==true){
-            //return true;
-            document.getElementById("postForm").submit();
-        }else{
-            return false;
-        }
-    }
-    document.getElementById("btnPublish").onclick = function(){
-        document.getElementById("IsDraft").value = false;
-        submitSure();
-    }*/
 }
 
 //异步获取分类数据

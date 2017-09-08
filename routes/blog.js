@@ -180,7 +180,8 @@ router.get('/:category/:article',function(req,res,next){
                 Content: article.Content
             };
             res.render('blog/article', {
-                post: post
+                post: post,
+                title: article.Title
             });
         }
     })
