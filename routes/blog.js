@@ -23,13 +23,13 @@ router.get('/:category?',function(req,res,next){
             }
             if(flag){   
                 res.render('blog/index',{
-                    title:"一只猫",
+                    title:"一个叫丛丛的人的博客",
                     cateData:categories,
                     currentCate:currentCate
                 }) 
             }else{
                 res.render('blog/index',{
-                title:"一只猫",
+                title:"一个叫丛丛的人的博客",
                 cateData:categories
                 })
             }
