@@ -163,6 +163,7 @@ button.active.focus {
 }
 .blog-item p {
     margin-top: 20px;
+    word-wrap:break-word;
 }
 
 /*右下角小工具*/

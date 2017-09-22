@@ -92,11 +92,18 @@ function refreshCate(){
 
 }
 //选择分类按钮，创建声明函数对象
-function Selectlist(selectlist){
+/*function Selectlist(selectlist){
     this.selectList=document.getElementsByClassName(selectlist)[0];//选中btngroup
     this.selectIpt = document.getElementsByClassName(selectlist)[0].getElementsByTagName("input")[0];//选中input
     this.selectLi=document.getElementsByClassName(selectlist)[0].getElementsByTagName("li");//选中下拉菜单的每一个元素
     this.selectBtn=document.getElementsByClassName(selectlist)[0].getElementsByTagName("button")[0].getElementsByTagName("span")[0];//选中显示区
+}*/
+function Selectlist(selectlist){
+    var theSelectlist=document.getElementsByClassName(selectlist)[0];
+    this.selectList=theSelectlist;//选中btngroup
+    this.selectIpt = theSelectlist.getElementsByTagName("input")[0];//选中input
+    this.selectLi=theSelectlist.getElementsByTagName("li");//选中下拉菜单的每一个元素
+    this.selectBtn=theSelectlist.getElementsByTagName("button")[0].getElementsByTagName("span")[0];//选中显示区
 }
 Selectlist.prototype={
     selectList : '',

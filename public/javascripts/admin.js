@@ -80,11 +80,18 @@ function refreshCate(){
 
 }
 //选择分类按钮，创建声明函数对象
-function Selectlist(selectlist){
+/*function Selectlist(selectlist){
     this.selectList=document.getElementsByClassName(selectlist)[0];//选中btngroup
     this.selectIpt = document.getElementsByClassName(selectlist)[0].getElementsByTagName("input")[0];//选中input
     this.selectLi=document.getElementsByClassName(selectlist)[0].getElementsByTagName("li");//选中下拉菜单的每一个元素
     this.selectBtn=document.getElementsByClassName(selectlist)[0].getElementsByTagName("button")[0].getElementsByTagName("span")[0];//选中显示区
+}*/
+function Selectlist(selectlist){
+    var theSelectlist=document.getElementsByClassName(selectlist)[0];
+    this.selectList=theSelectlist;//选中btngroup
+    this.selectIpt = theSelectlist.getElementsByTagName("input")[0];//选中input
+    this.selectLi=theSelectlist.getElementsByTagName("li");//选中下拉菜单的每一个元素
+    this.selectBtn=theSelectlist.getElementsByTagName("button")[0].getElementsByTagName("span")[0];//选中显示区
 }
 Selectlist.prototype={
     selectList : '',
@@ -114,7 +121,7 @@ Selectlist.prototype={
 }
 
 //本地还是外链
-function localOrlink(){
+/*function localOrlink(){
     document.getElementById("block-link").classList.add("hidden");
     document.getElementById("Source").getElementsByTagName("label")[1].onclick=function(){
         document.getElementById("block-local").classList.remove("hidden");
@@ -123,6 +130,22 @@ function localOrlink(){
     document.getElementById("Source").getElementsByTagName("label")[2].onclick=function(){
         document.getElementById("block-local").classList.add("hidden");
         document.getElementById("block-link").classList.remove("hidden");
+    }
+}*/
+function localOrlink(){
+    var blockLink=document.getElementById("block-link");
+    var blockLocal=document.getElementById("block-local");
+    var source=document.getElementById("Source");
+    var label1=source.getElementsByTagName("label")[1];
+    var label2=source.getElementsByTagName("label")[2];
+    blockLink.classList.add("hidden");
+    label1.onclick=function(){
+        blockLocal.classList.remove("hidden");
+        blockLink.classList.add("hidden");
+    }
+    label2.onclick=function(){
+        blockLocal.classList.add("hidden");
+        blockLink.classList.remove("hidden");
     }
 }
 

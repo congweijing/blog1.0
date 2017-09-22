@@ -1,7 +1,7 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
 var ueditor = require('ueditor');
-var path = require('path');
 
 
 router.use("/",ueditor(path.join(__dirname, '../public/uploads'), function (req, res, next) {  
