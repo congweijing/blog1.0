@@ -22,7 +22,7 @@ exports.save = function(array,callback){
 	if(array.length>0){
 		array.forEach(function(item){
 			jsonArray.push({
-				_id:item.uniqued||shortid.generate(),
+				_id:item.uniqueid||shortid.generate(),
 				CateName:item.category,
 				Alias:item.alias,
 				CreateTime:new Date(),
