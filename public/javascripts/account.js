@@ -1,6 +1,4 @@
 $(function(){
-	$("body").css('background','url(images/s1.jpg) no-repeat');
-	$("body").css('background-size','100% 100%');
 	$("#txtUserName").focus();
 	$("#btnLogin").on("click",function(){
 		verify();
@@ -13,6 +11,7 @@ $(function(){
         }
     }, "#txtUserName, #txtPwd");
 })
+	
 function verify(){
 	var userName = $("#txtUserName").val();
 	var passWord = $("#txtPwd").val();

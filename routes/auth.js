@@ -50,6 +50,7 @@ router.post('/login',function(req,res,next){
                     if (req.session.returnTo) {
                         returnTo = req.session.returnTo;
                     }
+					console.log(req.session);
                     res.json({
                         valid: true,
                         returnTo: returnTo
